@@ -33,7 +33,7 @@ struct CardView : View {
                 VStack(alignment: .leading) {
                     Text("CARDHOLDER NAME")
                         .font(.caption)
-                    Text("NAME SURNAME")
+                    Text("NAME SURNAMEeee")
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
