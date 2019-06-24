@@ -10,23 +10,24 @@ import SwiftUI
 
 
 struct CardInputView : View {
-    @State var text: String = ""
-    let title: String
+    @EnvironmentObject var payCard: PayCard
+    var field: PayCardInputField
     
     var body: some View {
-        IDView(content, id: title)
+        IDView(content, id: field.title)
     }
     
     private var content: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(title)
+            Text(field.title)
                 .font(.system(size: 15))
                 //.fontWeight(.light)
                 .opacity(0.5)
             
-            TextField($text)
+            TextField($payCard.cvc)
                 .frame(height: 60)
                 .border(Color.black, width: 0.3, cornerRadius: 10)
+            
         }
     }
 }
@@ -35,7 +36,7 @@ struct CardInputView : View {
 #if DEBUG
 struct CardInputView_Previews : PreviewProvider {
     static var previews: some View {
-        CardInputView(title: "Cardholder Name").padding(20)
+        CardInputView(field: PayCardInputField.all.first!).padding(20)
     }
 }
 #endif

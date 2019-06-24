@@ -15,10 +15,21 @@ fileprivate extension AnyTransition {
         return  slide.combined(with: .opacity)    }
 }
 
+struct PayCardInputField:  Hashable { 
+    let title: String
+    let path: KeyPath<PayCard, String>
+    
+    static var all: [PayCardInputField] = [
+    .init(title: "Card Number", path: \PayCard.number),
+    .init(title: "Cardholder Name", path: \PayCard.holderName),
+    .init(title: "Valid Thru", path: \PayCard.validThru),
+    .init(title: "Security Code (CVV)", path: \PayCard.cvc)
+    ]
+}
+
 struct TypeYourCardScene : View {
     
-    private let payCardFields = PayCardField.allCases
-    @State var currentTypedField = PayCardField.number
+    @State var currentTypedField = PayCardInputField.all.first!
     @State var isLast = false
     
     var body: some View {
@@ -27,7 +38,7 @@ struct TypeYourCardScene : View {
             Text("Type in you card details:")
                 .font(.system(size: 27))
                 .fontWeight(.bold)
-            CardInputView(title: currentTypedField.rawValue) 
+            CardInputView(field: currentTypedField)
             .transition(.textFieldSlide)
             HStack {
                 Spacer()
@@ -41,12 +52,12 @@ struct TypeYourCardScene : View {
     private func goNextField() {
         guard isLast == false else { return }
         
-        let currentFieldIndex = payCardFields.firstIndex(of: currentTypedField)!
-        let nextIndex = payCardFields.index(after: currentFieldIndex)
+        let currentFieldIndex = PayCardInputField.all.firstIndex(of: currentTypedField)!
+        let nextIndex = PayCardInputField.all.index(after: currentFieldIndex)
         
-        let field = payCardFields[nextIndex]
+        let field = PayCardInputField.all[nextIndex]
         currentTypedField = field
-        isLast = nextIndex == (payCardFields.count - 1)
+        isLast = nextIndex == (PayCardInputField.all.count - 1)
     }
 }
 

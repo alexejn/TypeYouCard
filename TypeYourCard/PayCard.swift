@@ -21,10 +21,4 @@ final class PayCard: BindableObject {
         didChange.send(self)
     }
 }
-
-enum PayCardField:  String, CaseIterable {
-    case number = "Card Number"
-    case nameSurname = "Cardholder Name"
-    case validThru = "Valid Thru"
-    case cvc = "Security Code (CVC)"
-}
+ 
