@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0333352422C0FADA0025472E /* PayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352322C0FADA0025472E /* PayCard.swift */; };
 		6D47EDC522B6B58D005E61D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */; };
 		6D47EDC722B6B58D005E61D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */; };
 		6D47EDC922B6B58D005E61D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC822B6B58D005E61D1 /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0333352322C0FADA0025472E /* PayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCard.swift; sourceTree = "<group>"; };
 		6D47EDC122B6B58D005E61D1 /* TypeYourCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeYourCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */,
 				6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */,
 				6D47EDC822B6B58D005E61D1 /* ContentView.swift */,
+				0333352322C0FADA0025472E /* PayCard.swift */,
 				6D47EDD822B6B659005E61D1 /* CardView.swift */,
 				6D47EDCA22B6B590005E61D1 /* Assets.xcassets */,
 				6D47EDCF22B6B590005E61D1 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0333352422C0FADA0025472E /* PayCard.swift in Sources */,
 				6D47EDC522B6B58D005E61D1 /* AppDelegate.swift in Sources */,
 				6D47EDC722B6B58D005E61D1 /* SceneDelegate.swift in Sources */,
 				6D47EDD922B6B659005E61D1 /* CardView.swift in Sources */,
