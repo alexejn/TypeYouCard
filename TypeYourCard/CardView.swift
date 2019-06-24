@@ -35,31 +35,37 @@ fileprivate struct FrontCardSide: View {
                 Spacer()
                 Logo()
             }
-            Spacer(minLength: 36)
+            Spacer(minLength: 65)
             HStack {
-                Text("4243")
+                Text("XXXX")
                 Spacer()
-                Text("1111")
+                Text("XXXX")
                 Spacer()
-                Text("4213")
+                Text("XXXX")
                 Spacer()
-                Text("9876")
-                }
-                .font(.system(size: 28))
+                Text("XXXX")
+                }.font(Font.custom("CreditCard", size: 28))
                 .foregroundColor(.white)
+                .opacity(0.3)
             Spacer()
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 3) {
                     Text("CARDHOLDER NAME")
-                        .font(.caption)
-                    Text("NAME SURNAMEeee")
+                        .font(Font.custom("Lucida Grande", size: 13))
+                    Text("NAME SURNAME")
+                        .opacity(0.3)
+                        .font(Font.custom("CreditCard", size: 17))
                 }
                 Spacer()
-                VStack(alignment: .trailing) {
-                    Text("VALID THRU").font(.caption)
+                VStack(alignment: .trailing, spacing: 3) {
+                    Text("VALID THRU")
+                        .font(Font.custom("Lucida Grande", size: 13))
                     Text("MM/YY")
+                        .opacity(0.3)
+                        .font(Font.custom("CreditCard", size: 17))
                 }
                 }
+                .foregroundColor(Color.white)
         }.padding(20)
         .animation(.cardHideDelayed)
     }
@@ -69,13 +75,20 @@ fileprivate struct BackCardSide: View {
     @EnvironmentObject var payCard: PayCard
 
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 15) {
             Color.black.frame(height: 60)
                 .padding([.leading, .trailing], -20)
                 .padding(.top, 15)
             HStack {
-                Color.gray
-                TextField($payCard.cvc, placeholder: Text("XXX")) 
+                Color.gray.frame(width: 240, height: 40, alignment: .center)
+                ZStack {
+                    Color.white
+                    Text("XXX").foregroundColor(.gray)
+                        .font(Font.custom("CreditCard", size: 17))
+                        .padding(.bottom, 3)
+                }.frame(width: 40, height: 32)
+                .cornerRadius(3)
+                Spacer()
             }
             Spacer()
             HStack {
@@ -88,18 +101,18 @@ fileprivate struct BackCardSide: View {
     }
 }
 
-
 struct CardView : View {
     @EnvironmentObject var payCard: PayCard
-    @State var isFront = false
+    @State var isFront = true
     
     var body: some View {
         ZStack {
             BackCardSide().opacity(isFront ? 0 : 1)
             FrontCardSide().opacity(isFront ? 1 : 0)
         }
-        .background(Color(red: 59/255, green: 58/255, blue: 61/255), cornerRadius: 20)
+        .background(Color(red: 59/255, green: 58/255, blue: 61/255), cornerRadius: 16)
         .aspectRatio(1.46, contentMode: .fit)
+        .shadow(radius: 10)
         .rotation3DEffect(.degrees(isFront ? 0 : -180), axis: (x: 0, y: 1, z: 0))
         .tapAction { withAnimation(.rotateCard) { self.isFront.toggle() } }
     }
