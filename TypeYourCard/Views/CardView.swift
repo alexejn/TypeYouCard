@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-fileprivate extension Animation {
+extension Animation {
     private static let rotateDuration:Double = 0.3
     
     static var cardHideDelayed: Animation {
@@ -25,10 +25,12 @@ fileprivate struct Logo: View {
         Text("LOGO")
     }
 }
+ 
 
 fileprivate struct FrontCardSide: View {
     @EnvironmentObject var payCard: PayCard
     
+ 
     var body: some View {
         VStack {
             HStack {
@@ -37,13 +39,13 @@ fileprivate struct FrontCardSide: View {
             }
             Spacer(minLength: 65)
             HStack {
-                Text("XXXX")
+                ColoredText(model: .init(placeholder: "XXXX"))
                 Spacer()
-                Text("XXXX")
+                ColoredText(model: .init(placeholder: "XXXX"))
                 Spacer()
-                Text("XXXX")
+                ColoredText(model: .init(placeholder: "XXXX"))
                 Spacer()
-                Text("XXXX")
+                ColoredText(model: .init(placeholder: "XXXX"))
                 }.font(Font.custom("CreditCard", size: 28))
                 .foregroundColor(.white)
                 .opacity(0.3)
@@ -52,16 +54,15 @@ fileprivate struct FrontCardSide: View {
                 VStack(alignment: .leading, spacing: 3) {
                     Text("CARDHOLDER NAME")
                         .font(Font.custom("Lucida Grande", size: 13))
-                    Text("NAME SURNAME")
-                        .opacity(0.3)
+                    ColoredText(model: .init(placeholder: "NAME SURNAME",
+                                             showPlaceholderWhileTyping: false))
                         .font(Font.custom("CreditCard", size: 17))
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 3) {
                     Text("VALID THRU")
                         .font(Font.custom("Lucida Grande", size: 13))
-                    Text("MM/YY")
-                        .opacity(0.3)
+                    ColoredText(model: .init(placeholder: "MM/YY"))
                         .font(Font.custom("CreditCard", size: 17))
                 }
                 }
@@ -103,18 +104,16 @@ fileprivate struct BackCardSide: View {
 
 struct CardView : View {
     @EnvironmentObject var payCard: PayCard
-    @State var isFront = true
     
     var body: some View {
         ZStack {
-            BackCardSide().opacity(isFront ? 0 : 1)
-            FrontCardSide().opacity(isFront ? 1 : 0)
+            BackCardSide().opacity(payCard.isCVVProviding ? 1 : 0)
+            FrontCardSide().opacity(payCard.isCVVProviding ? 0 : 1)
         }
         .background(Color(red: 59/255, green: 58/255, blue: 61/255), cornerRadius: 16)
         .aspectRatio(1.46, contentMode: .fit)
         .shadow(radius: 10)
-        .rotation3DEffect(.degrees(isFront ? 0 : -180), axis: (x: 0, y: 1, z: 0))
-        .tapAction { withAnimation(.rotateCard) { self.isFront.toggle() } }
+        .rotation3DEffect(.degrees(payCard.isCVVProviding ? -180 : 0), axis: (x: 0, y: 1, z: 0))
     }
 }
 

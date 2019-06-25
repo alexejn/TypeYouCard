@@ -12,13 +12,21 @@ import Combine
 final class PayCard: BindableObject {
     let didChange = PassthroughSubject<PayCard, Never>()
     
-    var number: String = ""  {  didSet { notify() } }
+    var number: String = ""  { didSet { notify() }  }
     var holderName: String = ""  {  didSet { notify() } }
     var validThru: String = "" {  didSet { notify() } }
     var cvc: String = ""  {  didSet { notify() } }
     
     private func notify() {
         didChange.send(self)
+    }
+    
+    var isCVVProviding: Bool = false {  didSet { notify() } }
+    
+    var holderPlaceHolder: String {
+        var placeholder = "NAME LASTNAME"
+        placeholder.removeFirst(holderName.count)
+        return placeholder
     }
 }
  

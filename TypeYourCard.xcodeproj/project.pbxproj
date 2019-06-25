@@ -12,6 +12,8 @@
 		0333352922C113940025472E /* CREDC___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0333352822C113940025472E /* CREDC___.ttf */; };
 		0333352B22C123A10025472E /* CardInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352A22C123A10025472E /* CardInputView.swift */; };
 		0333352D22C134310025472E /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352C22C134310025472E /* NextButton.swift */; };
+		0374334822C215B600180D28 /* PayCardInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374334722C215B600180D28 /* PayCardInput.swift */; };
+		0374334B22C244F100180D28 /* ColoredText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374334A22C244F100180D28 /* ColoredText.swift */; };
 		6D47EDC522B6B58D005E61D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */; };
 		6D47EDC722B6B58D005E61D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */; };
 		6D47EDC922B6B58D005E61D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC822B6B58D005E61D1 /* ContentView.swift */; };
@@ -27,6 +29,8 @@
 		0333352822C113940025472E /* CREDC___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CREDC___.ttf"; path = "CreditCardFont/CREDC___.ttf"; sourceTree = SOURCE_ROOT; };
 		0333352A22C123A10025472E /* CardInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputView.swift; sourceTree = "<group>"; };
 		0333352C22C134310025472E /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		0374334722C215B600180D28 /* PayCardInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardInput.swift; sourceTree = "<group>"; };
+		0374334A22C244F100180D28 /* ColoredText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredText.swift; sourceTree = "<group>"; };
 		6D47EDC122B6B58D005E61D1 /* TypeYourCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeYourCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,28 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		0374334522C2156E00180D28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6D47EDC822B6B58D005E61D1 /* ContentView.swift */,
+				0333352C22C134310025472E /* NextButton.swift */,
+				6D47EDD822B6B659005E61D1 /* CardView.swift */,
+				0333352A22C123A10025472E /* CardInputView.swift */,
+				0333352522C10DE20025472E /* TypeYourCardScene.swift */,
+				0374334A22C244F100180D28 /* ColoredText.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0374334922C215FF00180D28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0374334722C215B600180D28 /* PayCardInput.swift */,
+				0333352322C0FADA0025472E /* PayCard.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6D47EDB822B6B58D005E61D1 = {
 			isa = PBXGroup;
 			children = (
@@ -76,15 +102,11 @@
 		6D47EDC322B6B58D005E61D1 /* TypeYourCard */ = {
 			isa = PBXGroup;
 			children = (
+				0374334922C215FF00180D28 /* Models */,
+				0374334522C2156E00180D28 /* Views */,
 				0333352722C113760025472E /* Font */,
 				6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */,
 				6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */,
-				6D47EDC822B6B58D005E61D1 /* ContentView.swift */,
-				0333352322C0FADA0025472E /* PayCard.swift */,
-				0333352522C10DE20025472E /* TypeYourCardScene.swift */,
-				0333352C22C134310025472E /* NextButton.swift */,
-				0333352A22C123A10025472E /* CardInputView.swift */,
-				6D47EDD822B6B659005E61D1 /* CardView.swift */,
 				6D47EDCA22B6B590005E61D1 /* Assets.xcassets */,
 				6D47EDCF22B6B590005E61D1 /* LaunchScreen.storyboard */,
 				6D47EDD222B6B590005E61D1 /* Info.plist */,
@@ -173,6 +195,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0374334822C215B600180D28 /* PayCardInput.swift in Sources */,
+				0374334B22C244F100180D28 /* ColoredText.swift in Sources */,
 				0333352422C0FADA0025472E /* PayCard.swift in Sources */,
 				0333352622C10DE20025472E /* TypeYourCardScene.swift in Sources */,
 				6D47EDC522B6B58D005E61D1 /* AppDelegate.swift in Sources */,

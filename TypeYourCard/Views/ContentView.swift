@@ -8,17 +8,24 @@
 
 import SwiftUI
 
+var payCard = PayCard()
+
 struct ContentView : View {
     var body: some View {
         NavigationView {
-            NavigationButton(destination: TypeYourCardScene().padding(EdgeInsets(top: -30, leading: 20, bottom: 20, trailing: 20))) {
+            NavigationButton(destination:
+            TypeYourCardScene()
+                .environmentObject(payCard)
+                .padding(EdgeInsets(top: -30, leading: 20, bottom: 20, trailing: 20)) 
+            ) {
                 ZStack {
                     Color.black
                     Text("Add new card").foregroundColor(.white)
                 }.cornerRadius(5)
                 .frame(width: 300, height: 50, alignment: .center)
-            }
-        } 
+                }
+            
+        }
     }
 }
 
