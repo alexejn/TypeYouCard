@@ -47,8 +47,7 @@ fileprivate struct FrontCardSide: View {
                 Spacer()
                 ColoredText(model: .init(placeholder: "XXXX"))
                 }.font(Font.custom("CreditCard", size: 28))
-                .foregroundColor(.white)
-                .opacity(0.3)
+                .foregroundColor(.white) 
             Spacer()
             HStack {
                 VStack(alignment: .leading, spacing: 3) {

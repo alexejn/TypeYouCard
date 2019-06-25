@@ -12,7 +12,7 @@ import Combine
 final class ColoredTextViewModel: BindableObject {
     let didChange = PassthroughSubject<ColoredTextViewModel, Never>()
     
-    private(set) var currentText: String = "ALE"
+    private(set) var currentText: String = ""
     private(set) var currentPlaceholder: String = ""
     
     private let placeholder: String
