@@ -1,5 +1,5 @@
 //
-//  NextButton.swift
+//  ActionButton.swift
 //  TypeYourCard
 //
 //  Created by alexej_ne on 24.06.2019.
@@ -7,34 +7,8 @@
 //
 
 import SwiftUI
-prefix operator ⋮
-prefix func ⋮(hex:UInt32) -> Color {
-    return Color(hex)
-}
 
-extension Color {
-    init(_ hex: UInt32, opacity:Double = 1.0) {
-        let red = Double((hex & 0xff0000) >> 16) / 255.0
-        let green = Double((hex & 0xff00) >> 8) / 255.0
-        let blue = Double((hex & 0xff) >> 0) / 255.0
-        self.init(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
-    }
-}
-
-let hexColor:(UInt32) -> (Color) = {
-    return Color($0)
-}
-
-
-fileprivate extension LinearGradient {
-    static var nextButton: LinearGradient {
-        LinearGradient(gradient: .init(colors: [Color(0x6547B4), Color(0xA82786)]),
-                       startPoint: .init(x: 0, y: 0.2),
-                       endPoint: .init(x: 1, y: 0.9))
-    }
-}
-
-struct NextButton : View {
+struct ActionButton : View {
     var title: String 
  
     private var shape: some View {
@@ -60,7 +34,7 @@ struct NextButton : View {
                                                        height: smallCornerRadius),
                                     style: .circular,
                                     transform: .identity)
-                }.fill(LinearGradient.nextButton) 
+                }.fill(LinearGradient.forActionButton)
         }
     }
         
@@ -79,9 +53,9 @@ struct NextButton : View {
 }
 
 #if DEBUG
-struct NextButton_Previews : PreviewProvider {
+struct ActionButton_Previews : PreviewProvider {
     static var previews: some View {
-        NextButton(title: "Next")
+        ActionButton(title: "Next")
     }
 }
 #endif

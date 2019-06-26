@@ -7,30 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0333352422C0FADA0025472E /* PayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352322C0FADA0025472E /* PayCard.swift */; };
-		0333352622C10DE20025472E /* TypeYourCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352522C10DE20025472E /* TypeYourCardScene.swift */; };
-		0333352922C113940025472E /* CREDC___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0333352822C113940025472E /* CREDC___.ttf */; };
-		0333352B22C123A10025472E /* CardInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352A22C123A10025472E /* CardInputView.swift */; };
-		0333352D22C134310025472E /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352C22C134310025472E /* NextButton.swift */; };
-		0374334822C215B600180D28 /* PayCardInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374334722C215B600180D28 /* PayCardInput.swift */; };
-		0374334B22C244F100180D28 /* ColoredText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374334A22C244F100180D28 /* ColoredText.swift */; };
+		030882A322C3A9250006C0CD /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030882A222C3A9250006C0CD /* String+.swift */; };
+		030882A622C3AF560006C0CD /* CREDC___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 030882A522C3AF3E0006C0CD /* CREDC___.ttf */; };
+		030882A822C3B2BE0006C0CD /* Font+Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030882A722C3B2BE0006C0CD /* Font+Card.swift */; };
+		031CA59622C35EBF00D5AD9D /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA59522C35EBF00D5AD9D /* Color+.swift */; };
+		031CA59A22C3604100D5AD9D /* LinearGradient+ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA59922C3604100D5AD9D /* LinearGradient+ActionButton.swift */; };
+		031CA59D22C3615700D5AD9D /* Animation+FlipOtherSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA59C22C3615700D5AD9D /* Animation+FlipOtherSide.swift */; };
+		031CA59F22C3673A00D5AD9D /* PayServiceLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA59E22C3673A00D5AD9D /* PayServiceLogoView.swift */; };
+		031CA5A122C36ADA00D5AD9D /* KeyboardTypeSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA5A022C36ADA00D5AD9D /* KeyboardTypeSetter.swift */; };
+		0333352422C0FADA0025472E /* TypeCardEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352322C0FADA0025472E /* TypeCardEnvironment.swift */; };
+		0333352622C10DE20025472E /* TypeCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352522C10DE20025472E /* TypeCardScene.swift */; };
+		0333352B22C123A10025472E /* PayCardFieldInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352A22C123A10025472E /* PayCardFieldInputView.swift */; };
+		0333352D22C134310025472E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352C22C134310025472E /* ActionButton.swift */; };
+		0343043422C385F0002BE9FC /* PayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0343043322C385F0002BE9FC /* PayService.swift */; };
+		0373994522C373AC00B35C43 /* PayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0373994422C373AC00B35C43 /* PayCard.swift */; };
+		0373994722C3742700B35C43 /* AnyTransition+SlideRightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0373994622C3742700B35C43 /* AnyTransition+SlideRightToLeft.swift */; };
+		0374334822C215B600180D28 /* PayCardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374334722C215B600180D28 /* PayCardField.swift */; };
+		0374334B22C244F100180D28 /* PlaceholderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374334A22C244F100180D28 /* PlaceholderText.swift */; };
 		6D47EDC522B6B58D005E61D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */; };
 		6D47EDC722B6B58D005E61D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */; };
 		6D47EDC922B6B58D005E61D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDC822B6B58D005E61D1 /* ContentView.swift */; };
 		6D47EDCB22B6B590005E61D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D47EDCA22B6B590005E61D1 /* Assets.xcassets */; };
 		6D47EDCE22B6B590005E61D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D47EDCD22B6B590005E61D1 /* Preview Assets.xcassets */; };
 		6D47EDD122B6B590005E61D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D47EDCF22B6B590005E61D1 /* LaunchScreen.storyboard */; };
-		6D47EDD922B6B659005E61D1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDD822B6B659005E61D1 /* CardView.swift */; };
+		6D47EDD922B6B659005E61D1 /* PayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D47EDD822B6B659005E61D1 /* PayCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0333352322C0FADA0025472E /* PayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCard.swift; sourceTree = "<group>"; };
-		0333352522C10DE20025472E /* TypeYourCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeYourCardScene.swift; sourceTree = "<group>"; };
-		0333352822C113940025472E /* CREDC___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CREDC___.ttf"; path = "CreditCardFont/CREDC___.ttf"; sourceTree = SOURCE_ROOT; };
-		0333352A22C123A10025472E /* CardInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputView.swift; sourceTree = "<group>"; };
-		0333352C22C134310025472E /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
-		0374334722C215B600180D28 /* PayCardInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardInput.swift; sourceTree = "<group>"; };
-		0374334A22C244F100180D28 /* ColoredText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredText.swift; sourceTree = "<group>"; };
+		030882A222C3A9250006C0CD /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		030882A522C3AF3E0006C0CD /* CREDC___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CREDC___.ttf"; sourceTree = "<group>"; };
+		030882A722C3B2BE0006C0CD /* Font+Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Card.swift"; sourceTree = "<group>"; };
+		031CA59522C35EBF00D5AD9D /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		031CA59922C3604100D5AD9D /* LinearGradient+ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinearGradient+ActionButton.swift"; sourceTree = "<group>"; };
+		031CA59C22C3615700D5AD9D /* Animation+FlipOtherSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+FlipOtherSide.swift"; sourceTree = "<group>"; };
+		031CA59E22C3673A00D5AD9D /* PayServiceLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayServiceLogoView.swift; sourceTree = "<group>"; };
+		031CA5A022C36ADA00D5AD9D /* KeyboardTypeSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTypeSetter.swift; sourceTree = "<group>"; };
+		0333352322C0FADA0025472E /* TypeCardEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCardEnvironment.swift; sourceTree = "<group>"; };
+		0333352522C10DE20025472E /* TypeCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCardScene.swift; sourceTree = "<group>"; };
+		0333352A22C123A10025472E /* PayCardFieldInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardFieldInputView.swift; sourceTree = "<group>"; };
+		0333352C22C134310025472E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		0343043322C385F0002BE9FC /* PayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayService.swift; sourceTree = "<group>"; };
+		0373994422C373AC00B35C43 /* PayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCard.swift; sourceTree = "<group>"; };
+		0373994622C3742700B35C43 /* AnyTransition+SlideRightToLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyTransition+SlideRightToLeft.swift"; sourceTree = "<group>"; };
+		0374334722C215B600180D28 /* PayCardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardField.swift; sourceTree = "<group>"; };
+		0374334A22C244F100180D28 /* PlaceholderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderText.swift; sourceTree = "<group>"; };
 		6D47EDC122B6B58D005E61D1 /* TypeYourCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeYourCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +59,7 @@
 		6D47EDCD22B6B590005E61D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6D47EDD022B6B590005E61D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D47EDD222B6B590005E61D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D47EDD822B6B659005E61D1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		6D47EDD822B6B659005E61D1 /* PayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +73,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030882A122C3A9040006C0CD /* Swift+ */ = {
+			isa = PBXGroup;
+			children = (
+				030882A222C3A9250006C0CD /* String+.swift */,
+			);
+			path = "Swift+";
+			sourceTree = "<group>";
+		};
+		031CA59722C35F0800D5AD9D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0374334A22C244F100180D28 /* PlaceholderText.swift */,
+				0333352A22C123A10025472E /* PayCardFieldInputView.swift */,
+				6D47EDD822B6B659005E61D1 /* PayCardView.swift */,
+				0333352C22C134310025472E /* ActionButton.swift */,
+				031CA59E22C3673A00D5AD9D /* PayServiceLogoView.swift */,
+			);
+			name = Views;
+			path = TypeCardScene/Views;
+			sourceTree = "<group>";
+		};
+		031CA59822C35FE000D5AD9D /* SwiftUI+ */ = {
+			isa = PBXGroup;
+			children = (
+				031CA59522C35EBF00D5AD9D /* Color+.swift */,
+				031CA5A022C36ADA00D5AD9D /* KeyboardTypeSetter.swift */,
+				030882A722C3B2BE0006C0CD /* Font+Card.swift */,
+			);
+			path = "SwiftUI+";
+			sourceTree = "<group>";
+		};
+		031CA59B22C3604800D5AD9D /* SwiftUI+TypeYouCard */ = {
+			isa = PBXGroup;
+			children = (
+				031CA59922C3604100D5AD9D /* LinearGradient+ActionButton.swift */,
+				031CA59C22C3615700D5AD9D /* Animation+FlipOtherSide.swift */,
+				0373994622C3742700B35C43 /* AnyTransition+SlideRightToLeft.swift */,
+			);
+			path = "SwiftUI+TypeYouCard";
+			sourceTree = "<group>";
+		};
 		0333352722C113760025472E /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				0333352822C113940025472E /* CREDC___.ttf */,
+				030882A522C3AF3E0006C0CD /* CREDC___.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -64,12 +125,6 @@
 		0374334522C2156E00180D28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6D47EDC822B6B58D005E61D1 /* ContentView.swift */,
-				0333352C22C134310025472E /* NextButton.swift */,
-				6D47EDD822B6B659005E61D1 /* CardView.swift */,
-				0333352A22C123A10025472E /* CardInputView.swift */,
-				0333352522C10DE20025472E /* TypeYourCardScene.swift */,
-				0374334A22C244F100180D28 /* ColoredText.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -77,10 +132,20 @@
 		0374334922C215FF00180D28 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0374334722C215B600180D28 /* PayCardInput.swift */,
-				0333352322C0FADA0025472E /* PayCard.swift */,
+				0374334722C215B600180D28 /* PayCardField.swift */,
+				0373994422C373AC00B35C43 /* PayCard.swift */,
+				0343043322C385F0002BE9FC /* PayService.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		03E8BE8F22C35DF2006A88BB /* TypeCardScene */ = {
+			isa = PBXGroup;
+			children = (
+				0333352522C10DE20025472E /* TypeCardScene.swift */,
+				0333352322C0FADA0025472E /* TypeCardEnvironment.swift */,
+			);
+			path = TypeCardScene;
 			sourceTree = "<group>";
 		};
 		6D47EDB822B6B58D005E61D1 = {
@@ -102,11 +167,17 @@
 		6D47EDC322B6B58D005E61D1 /* TypeYourCard */ = {
 			isa = PBXGroup;
 			children = (
+				030882A122C3A9040006C0CD /* Swift+ */,
+				031CA59822C35FE000D5AD9D /* SwiftUI+ */,
+				031CA59B22C3604800D5AD9D /* SwiftUI+TypeYouCard */,
+				031CA59722C35F0800D5AD9D /* Views */,
+				03E8BE8F22C35DF2006A88BB /* TypeCardScene */,
 				0374334922C215FF00180D28 /* Models */,
 				0374334522C2156E00180D28 /* Views */,
 				0333352722C113760025472E /* Font */,
 				6D47EDC422B6B58D005E61D1 /* AppDelegate.swift */,
 				6D47EDC622B6B58D005E61D1 /* SceneDelegate.swift */,
+				6D47EDC822B6B58D005E61D1 /* ContentView.swift */,
 				6D47EDCA22B6B590005E61D1 /* Assets.xcassets */,
 				6D47EDCF22B6B590005E61D1 /* LaunchScreen.storyboard */,
 				6D47EDD222B6B590005E61D1 /* Info.plist */,
@@ -183,8 +254,8 @@
 			files = (
 				6D47EDD122B6B590005E61D1 /* LaunchScreen.storyboard in Resources */,
 				6D47EDCE22B6B590005E61D1 /* Preview Assets.xcassets in Resources */,
-				0333352922C113940025472E /* CREDC___.ttf in Resources */,
 				6D47EDCB22B6B590005E61D1 /* Assets.xcassets in Resources */,
+				030882A622C3AF560006C0CD /* CREDC___.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,15 +266,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0374334822C215B600180D28 /* PayCardInput.swift in Sources */,
-				0374334B22C244F100180D28 /* ColoredText.swift in Sources */,
-				0333352422C0FADA0025472E /* PayCard.swift in Sources */,
-				0333352622C10DE20025472E /* TypeYourCardScene.swift in Sources */,
+				031CA59622C35EBF00D5AD9D /* Color+.swift in Sources */,
+				031CA59F22C3673A00D5AD9D /* PayServiceLogoView.swift in Sources */,
+				030882A822C3B2BE0006C0CD /* Font+Card.swift in Sources */,
+				0374334822C215B600180D28 /* PayCardField.swift in Sources */,
+				0373994722C3742700B35C43 /* AnyTransition+SlideRightToLeft.swift in Sources */,
+				0374334B22C244F100180D28 /* PlaceholderText.swift in Sources */,
+				030882A322C3A9250006C0CD /* String+.swift in Sources */,
+				031CA5A122C36ADA00D5AD9D /* KeyboardTypeSetter.swift in Sources */,
+				0333352422C0FADA0025472E /* TypeCardEnvironment.swift in Sources */,
+				031CA59A22C3604100D5AD9D /* LinearGradient+ActionButton.swift in Sources */,
+				0343043422C385F0002BE9FC /* PayService.swift in Sources */,
+				0333352622C10DE20025472E /* TypeCardScene.swift in Sources */,
 				6D47EDC522B6B58D005E61D1 /* AppDelegate.swift in Sources */,
 				6D47EDC722B6B58D005E61D1 /* SceneDelegate.swift in Sources */,
-				0333352B22C123A10025472E /* CardInputView.swift in Sources */,
-				6D47EDD922B6B659005E61D1 /* CardView.swift in Sources */,
-				0333352D22C134310025472E /* NextButton.swift in Sources */,
+				0333352B22C123A10025472E /* PayCardFieldInputView.swift in Sources */,
+				6D47EDD922B6B659005E61D1 /* PayCardView.swift in Sources */,
+				0373994522C373AC00B35C43 /* PayCard.swift in Sources */,
+				0333352D22C134310025472E /* ActionButton.swift in Sources */,
+				031CA59D22C3615700D5AD9D /* Animation+FlipOtherSide.swift in Sources */,
 				6D47EDC922B6B58D005E61D1 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +433,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.someSwift.TypeYourCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -372,7 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.someSwift.TypeYourCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
