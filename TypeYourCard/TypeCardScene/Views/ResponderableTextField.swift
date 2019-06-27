@@ -22,8 +22,8 @@ struct ResponderableTextField: UIViewRepresentable {
         func textFieldDidChangeSelection(_ textField: UITextField) {
             text = textField.text ?? ""
         }
-        
     }
+    
     
     @Binding var text: String
     var isFirstResponder: Bool = false

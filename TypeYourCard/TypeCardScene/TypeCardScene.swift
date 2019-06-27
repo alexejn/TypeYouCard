@@ -8,7 +8,11 @@
 
 import SwiftUI
 
-fileprivate extension PayCardField {
+extension PayCardField {
+    
+    var isFirstInput: Bool {
+        self.rawValue == PayCardField.allCases.map { $0.rawValue }.min()!
+    }
     
     var isLastInput: Bool {
         self.rawValue == PayCardField.allCases.map { $0.rawValue }.max()!
@@ -21,6 +25,10 @@ fileprivate extension PayCardField {
     var nextForInput: PayCardField? {
         PayCardField(rawValue: rawValue + 1)
     }
+    
+    var prevForInput: PayCardField? {
+        PayCardField(rawValue: rawValue - 1)
+    }
 }
 
 struct TypeCardScene : View {
@@ -31,7 +39,7 @@ struct TypeCardScene : View {
         switch environment.currentInputField {
         case .number: return $environment.number
         case .holder: return $environment.holderName
-        case .cvv: return $environment.cvc
+        case .cvv: return $environment.cvv
         case .validThru: return $environment.validThru
         }
     }
@@ -48,11 +56,11 @@ struct TypeCardScene : View {
             VStack(alignment: .trailing, spacing: 10) {
                 PayCardFieldInputView(field: environment.currentInputField,
                                       binding: textFieldBinding,
-                                      isFirstResponder: true).transition(.slideRightToLeft)
+                                      isFirstResponder: true)
+                    .transition(.slideRightToLeft)
                 HStack {
-                    Button(action: goNext) {
-                        ActionButton(title: self.environment.currentInputField.buttonTitle)
-                    }
+                    Button(action: goNext) {  ActionButton(title: self.environment.currentInputField.buttonTitle) }
+                        .opacity( environment.canGoNext ? 1 : 0.6)
                 }
             }
             Spacer()
@@ -64,10 +72,12 @@ struct TypeCardScene : View {
     }
     
     private func goNext() {
-        if let nextInput = environment.currentInputField.nextForInput {
-            environment.currentInputField = nextInput
+        guard environment.canGoNext else { return }
+        
+        if environment.currentInputField.isLastInput {
+            isPresented?.value = false
         } else {
-           isPresented?.value = false
+            withAnimation { environment.goToNextField() }
         }
     }
 }

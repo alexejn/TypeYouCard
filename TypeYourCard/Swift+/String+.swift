@@ -9,14 +9,12 @@ import Foundation
 
 extension String {
     
-    public var onlyNumeric: String {
-        let characterSet = CharacterSet(charactersIn: "0123456789").inverted
-        return components(separatedBy: characterSet)
-            .joined()
-    }
+    public var onlyNumeric: String {  filter(allowedSymbols:  "0123456789")  } 
     
-    public var onlyLetter: String {
-        let characterSet = CharacterSet(charactersIn: " QWERTYUIOPASDFGHJKLZXCVBNM'").inverted
+    public var onlyLetter: String {  filter(allowedSymbols:  " QWERTYUIOPASDFGHJKLZXCVBNM'")  }
+    
+    public func filter(allowedSymbols: String ) -> String {
+        let characterSet = CharacterSet(charactersIn: allowedSymbols).inverted
         return components(separatedBy: characterSet)
             .joined()
     }

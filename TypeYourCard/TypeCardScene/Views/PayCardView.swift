@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct GoldBorder: ViewModifier {
-    let padding: Length = 4
-    let cornerRadius: Length = 10
     let visible: Bool
+    let cornerRadius: Length = 10
+    var padding: EdgeInsets = .init(top: 2, leading: 6, bottom: 5, trailing: 6)
     
     func body(content: Content) -> some View {
         content
@@ -19,11 +19,14 @@ struct GoldBorder: ViewModifier {
             .border(Color(0xC0AE5B),
                     width: visible ? 2 : 0,
                     cornerRadius: cornerRadius)
-            .padding(-padding)
-            .padding(.bottom, 2)
+            .padding(EdgeInsets(top: -padding.top,
+                                leading: -padding.leading,
+                                bottom: -padding.bottom,
+                                trailing:  -padding.trailing))
+        
     }
 }
-
+//MARK: Front side
 fileprivate struct FrontCardSide: View {
     @EnvironmentObject var environment: TypeCardEnvironment
     
@@ -46,7 +49,7 @@ fileprivate struct FrontCardSide: View {
                 .modifier(GoldBorder(visible: environment.currentInputField == PayCardField.number))
                 .font(.cardNumberField)
                 .foregroundColor(.white)
-            
+                .tapAction { self.goTo(field: .number) } 
             Spacer()
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
@@ -57,6 +60,7 @@ fileprivate struct FrontCardSide: View {
                                     showPlaceholderWhileTyping: false)
                         .font(.cardRegularField)
                         .modifier(GoldBorder(visible: environment.currentInputField == PayCardField.holder))
+                         .tapAction { self.goTo(field: .holder) }
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 3) {
@@ -65,14 +69,20 @@ fileprivate struct FrontCardSide: View {
                     PlaceholderText(placeholder: "MM/YY", text: environment.onCardValidThru)
                         .font(.cardRegularField)
                         .modifier(GoldBorder(visible: environment.currentInputField == PayCardField.validThru))
+                        .tapAction { self.goTo(field: .validThru) }
                 }
                 }
                 .foregroundColor(Color.white)
         }.padding(20)
-        .animation(Animation.FlipOtherSide.hideSideWhileFlip, value: environment.currentInputField) 
+        .animation(Animation.FlipOtherSide.hideSideWhileFlip)
+    }
+    
+    private func goTo(field: PayCardField) {
+        withAnimation { self.environment.goToIfCan(field: field)  }
     }
 }
 
+//MARK: Back side
 fileprivate struct BackCardSide: View {
     @EnvironmentObject var environment: TypeCardEnvironment
     
@@ -90,7 +100,8 @@ fileprivate struct BackCardSide: View {
                         .padding(.bottom, 3)
                 }.frame(width: 40, height: 32)
                 .cornerRadius(6)
-                .modifier(GoldBorder(visible: true))
+                .modifier(GoldBorder(visible: true,
+                                     padding: .init(top: 5, leading: 5, bottom: 5, trailing: 5)))
                 Spacer()
             }
             Spacer()
@@ -100,10 +111,13 @@ fileprivate struct BackCardSide: View {
             }
         }.padding(20)
         .rotation3DEffect(.degrees(-180), axis: (x: 0, y: 1, z: 0))
-            .animation(Animation.FlipOtherSide.hideSideWhileFlip, value: environment.validThru)
+        .animation(Animation.FlipOtherSide.hideSideWhileFlip)
+        .tapAction(environment.goToPreviousField)
+        
     }
 }
 
+//MARK: PayCard
 struct PayCardView : View {
     @EnvironmentObject var environment: TypeCardEnvironment
     
