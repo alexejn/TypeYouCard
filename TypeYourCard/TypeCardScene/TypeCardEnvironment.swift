@@ -47,7 +47,7 @@ final class TypeCardEnvironment: BindableObject {
     var holderName: String = ""  {
         didSet {
             guard oldValue != holderName else { return }
-            self.holderName = holderName.uppercased().onlyLetter.trimmingCharacters(in: .whitespaces)
+            self.holderName = holderName.uppercased().onlyLetter 
             notify()
         }
     }

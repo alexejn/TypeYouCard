@@ -14,6 +14,7 @@
 		031CA59A22C3604100D5AD9D /* LinearGradient+ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA59922C3604100D5AD9D /* LinearGradient+ActionButton.swift */; };
 		031CA59D22C3615700D5AD9D /* Animation+TypeYourCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA59C22C3615700D5AD9D /* Animation+TypeYourCard.swift */; };
 		031CA59F22C3673A00D5AD9D /* PayServiceLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CA59E22C3673A00D5AD9D /* PayServiceLogoView.swift */; };
+		032FEB0222C51E540091A810 /* MasterCardLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032FEB0122C51E540091A810 /* MasterCardLogoView.swift */; };
 		0333352422C0FADA0025472E /* TypeCardEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352322C0FADA0025472E /* TypeCardEnvironment.swift */; };
 		0333352622C10DE20025472E /* TypeCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352522C10DE20025472E /* TypeCardScene.swift */; };
 		0333352B22C123A10025472E /* PayCardFieldInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333352A22C123A10025472E /* PayCardFieldInputView.swift */; };
@@ -41,6 +42,7 @@
 		031CA59922C3604100D5AD9D /* LinearGradient+ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinearGradient+ActionButton.swift"; sourceTree = "<group>"; };
 		031CA59C22C3615700D5AD9D /* Animation+TypeYourCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+TypeYourCard.swift"; sourceTree = "<group>"; };
 		031CA59E22C3673A00D5AD9D /* PayServiceLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayServiceLogoView.swift; sourceTree = "<group>"; };
+		032FEB0122C51E540091A810 /* MasterCardLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCardLogoView.swift; sourceTree = "<group>"; };
 		0333352322C0FADA0025472E /* TypeCardEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCardEnvironment.swift; sourceTree = "<group>"; };
 		0333352522C10DE20025472E /* TypeCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCardScene.swift; sourceTree = "<group>"; };
 		0333352A22C123A10025472E /* PayCardFieldInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardFieldInputView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				6D47EDD822B6B659005E61D1 /* PayCardView.swift */,
 				0333352C22C134310025472E /* ActionButton.swift */,
 				031CA59E22C3673A00D5AD9D /* PayServiceLogoView.swift */,
+				032FEB0122C51E540091A810 /* MasterCardLogoView.swift */,
 				6D52A8EA22C425EB007A3DCC /* ResponderableTextField.swift */,
 			);
 			name = Views;
@@ -270,6 +273,7 @@
 				031CA59622C35EBF00D5AD9D /* Color+.swift in Sources */,
 				031CA59F22C3673A00D5AD9D /* PayServiceLogoView.swift in Sources */,
 				030882A822C3B2BE0006C0CD /* Font+Card.swift in Sources */,
+				032FEB0222C51E540091A810 /* MasterCardLogoView.swift in Sources */,
 				0374334822C215B600180D28 /* PayCardField.swift in Sources */,
 				0373994722C3742700B35C43 /* AnyTransition+SlideRightToLeft.swift in Sources */,
 				0374334B22C244F100180D28 /* PlaceholderText.swift in Sources */,

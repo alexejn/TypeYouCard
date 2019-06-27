@@ -8,6 +8,16 @@
 
 import SwiftUI
 
+extension PayService {
+    
+    var view: some View {
+        switch self {
+        case .MasterCard: return MasterCardLogoView()
+        }
+    }
+}
+
+
 struct PayServiceLogoView : View {
     @EnvironmentObject var typeCardEnvironment: TypeCardEnvironment
     
@@ -18,8 +28,16 @@ struct PayServiceLogoView : View {
             return "Unknown"
         }
     }
+    
     var body: some View {
-        Text(name)
+        ZStack {
+            if typeCardEnvironment.payService != nil {
+               typeCardEnvironment.payService!.view
+            } else {
+                EmptyView()
+            }
+
+        }
     }
 }
 

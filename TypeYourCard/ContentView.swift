@@ -12,7 +12,7 @@ struct ContentView : View {
     var body: some View { 
         NavigationView {
            
-            NavigationButton(destination: TypeCardScene().padding(.top, -70)) {
+            NavigationButton(destination: TypeCardScene().padding(.top, 0)) {
                 ZStack {
                     Color.black
                     Text("Add new card").foregroundColor(.white)
