@@ -9,16 +9,18 @@
 import SwiftUI
 
 struct ContentView : View {
-    var body: some View {
+    var body: some View { 
         NavigationView {
-            NavigationButton(destination: TypeCardScene()) {
+           
+            NavigationButton(destination: TypeCardScene().padding(.top, -70)) {
                 ZStack {
                     Color.black
                     Text("Add new card").foregroundColor(.white)
                 }
                 .cornerRadius(5)
                 .frame(width: 300, height: 50, alignment: .center)
-           }
+                
+           }.navigationBarTitle( Text("alexejn/TypeYouCard"))
         }
     }
 }

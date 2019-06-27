@@ -24,6 +24,7 @@ fileprivate extension PayCardField {
 }
 
 struct TypeCardScene : View {
+    @Environment(\.isPresented) private var isPresented
     @ObjectBinding var environment = TypeCardEnvironment()
   
     private var textFieldBinding: Binding<String> {
@@ -36,16 +37,18 @@ struct TypeCardScene : View {
     }
     
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
+        VStack(alignment: .center, spacing: 14) {
             PayCardView().layoutPriority(1)
             HStack {
                 Text("Type in you card details:")
-                    .font(.system(size: 27))
+                    .font(.system(size: 25))
                     .fontWeight(.bold)
                 Spacer()
             }
             VStack(alignment: .trailing, spacing: 10) {
-                PayCardFieldInputView(field: environment.currentInputField, binding: textFieldBinding).transition(.slideRightToLeft)
+                PayCardFieldInputView(field: environment.currentInputField,
+                                      binding: textFieldBinding,
+                                      isFirstResponder: true).transition(.slideRightToLeft)
                 HStack {
                     Button(action: goNext) {
                         ActionButton(title: self.environment.currentInputField.buttonTitle)
@@ -64,7 +67,7 @@ struct TypeCardScene : View {
         if let nextInput = environment.currentInputField.nextForInput {
             environment.currentInputField = nextInput
         } else {
-           // done
+           isPresented?.value = false
         }
     }
 }

@@ -27,6 +27,7 @@ final class TypeCardEnvironment: BindableObject {
     var cvc: String = ""  {  didSet { notify() } }
     var payService: PayService? = nil { didSet { notify() } }
     
+    var filled: Bool  { validThru.isEmpty == false }
     
     func clear() {
         currentInputField = .number

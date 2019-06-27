@@ -46,7 +46,7 @@ struct ActionButton : View {
             
         }
         .aspectRatio(216/117, contentMode: .fit)
-        .frame(height: 60)
+        .frame(height: 50)
         .foregroundColor(.white)
         
     }

@@ -13,8 +13,9 @@ struct PlaceholderText : View {
  
     private let placeholder: String
     private let text: String
+    private let showBorder: Bool
     
-    init(placeholder: String, text: String, showPlaceholderWhileTyping: Bool = true) {
+    init(placeholder: String, text: String, showBorder: Bool = false, showPlaceholderWhileTyping: Bool = true) {
         if showPlaceholderWhileTyping {
             let count = placeholder.count - text.count
             self.placeholder = String(placeholder.suffix( count > 0 ? count : 0 ))
@@ -22,6 +23,7 @@ struct PlaceholderText : View {
             self.placeholder = text.count > 0 ? "" : placeholder
         }
         self.text = text
+        self.showBorder = showBorder
         print("TEXT ", text)
         print("placeholder ", placeholder)
     }
@@ -32,7 +34,7 @@ struct PlaceholderText : View {
             Text(text)
             Text(placeholder)
                 .opacity(0.3)
-        }.padding(0)
+        }.padding(0) 
         .animation(nil)
     }
 }

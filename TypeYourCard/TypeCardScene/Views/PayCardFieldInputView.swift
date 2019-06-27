@@ -29,22 +29,23 @@ fileprivate extension PayCardField {
 struct PayCardFieldInputView : View {
     var field: PayCardField
     var binding: Binding<String>
+    var isFirstResponder: Bool
     
     var body: some View {
         IDView(content, id: field.title)
     }
     
     private var content: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 6) {
             Text(field.title)
                 .font(.system(size: 15))
                 .opacity(0.5)
             
-            TextField(binding, onEditingChanged: { if $0 {
-                keyboardTypeSetter.keyboardType = self.field.keyboardType
-            }})
+            ResponderableTextField(text: binding,
+                                   isFirstResponder: isFirstResponder,
+                                   keyboardType: field.keyboardType)
                 .padding(10)
-                .frame(height: 60)
+                .frame(height: 50)
                 .border(Color.black, width: 0.3, cornerRadius: 10)
         }
     }
@@ -53,7 +54,7 @@ struct PayCardFieldInputView : View {
 #if DEBUG
 struct PayCardFieldInputView_Previews : PreviewProvider {
     static var previews: some View {
-        PayCardFieldInputView(field: .number, binding: .constant("1234")).padding(20)
+        PayCardFieldInputView(field: .number, binding: .constant("1234"), isFirstResponder: true).padding(20)
     }
 }
 #endif

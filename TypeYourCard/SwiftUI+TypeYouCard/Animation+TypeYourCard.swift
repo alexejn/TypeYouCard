@@ -20,4 +20,8 @@ extension Animation {
             Animation.basic(duration: duration, curve: .linear)
         }
     }
+    
+    static var withoutAnimation: Animation {
+        Animation.basic(duration: 0, curve: .linear)
+    }
 }
