@@ -13,36 +13,16 @@ final class TypeCardEnvironment: BindableObject {
     let didChange = PassthroughSubject<TypeCardEnvironment, Never>()
     private func notify() {   didChange.send(self)  }
     
+    var currentInputField: PayCardField = .number { didSet {  notify() } }
+    
     var number: String = "" {
         didSet {
             guard oldValue != number else { return }
-            
-            var tempNumb = number
-            
-            if oldValue == "\(tempNumb) " {
-                tempNumb.removeLast(2)
-                number = tempNumb
-            } else {
-                var resultStr = ""
-                tempNumb = tempNumb.onlyNumeric[0..<16]
-                
-                let partsCount = tempNumb.count / 4
-                for _ in 0...partsCount {
-                    let part = tempNumb.prefix(4)
-                    resultStr = "\(resultStr) \(part)"
-                    if tempNumb.count >= 4 {
-                        tempNumb.removeFirst(4)
-                    }
-                }
-                
-                number = resultStr.trimmingCharacters(in: .whitespaces)
-            }
-            
+            cardNumberDidSet(oldValue: oldValue)
+            payService = number.count > 3 ? .MasterCard : nil
             notify()
         }
     }
-    
-    var currentInputField: PayCardField = .number { didSet {  notify() } }
     
     var holderName: String = ""  {
         didSet {
@@ -55,18 +35,7 @@ final class TypeCardEnvironment: BindableObject {
     var validThru: String = ""   {
         didSet {
             guard oldValue != validThru else { return }
-            var onCard = validThru.onlyNumeric[0..<5]
-            
-            if oldValue == "\(validThru)/" {
-                self.validThru = "\(onCard.prefix(1))"
-            } else if onCard.count > 1 {
-                let part1 = "\(onCard.prefix(2))"
-                onCard.removeFirst(2)
-                let part2 = onCard
-                self.validThru = "\(part1)/\(part2)"
-            } else {
-                self.validThru = onCard
-            }
+            validThruDidSet(oldValue: oldValue)
             notify()
         }
     }
@@ -80,8 +49,6 @@ final class TypeCardEnvironment: BindableObject {
     }
     
     var payService: PayService? = nil { didSet { notify() } }
-    
-    var filled: Bool  { validThru.isEmpty == false }
     
     func clear() {
         currentInputField = .number
@@ -139,6 +106,45 @@ extension TypeCardEnvironment {
     var onCardCVV: String { cvv[0..<3].fixFontIssue() }
 }
 
+fileprivate extension TypeCardEnvironment {
+    func cardNumberDidSet(oldValue: String) {
+        var tempNumb = number
+        
+        if oldValue == "\(tempNumb) " {
+            tempNumb.removeLast(2)
+            number = tempNumb
+        } else {
+            var resultStr = ""
+            tempNumb = tempNumb.onlyNumeric[0..<16]
+            
+            let partsCount = tempNumb.count / 4
+            for _ in 0...partsCount {
+                let part = tempNumb.prefix(4)
+                resultStr = "\(resultStr) \(part)"
+                if tempNumb.count >= 4 {
+                    tempNumb.removeFirst(4)
+                }
+            }
+            
+            number = resultStr.trimmingCharacters(in: .whitespaces)
+        }
+    }
+    
+    func validThruDidSet(oldValue: String) {
+        var onCard = validThru.onlyNumeric[0..<5]
+        
+        if oldValue == "\(validThru)/" {
+            self.validThru = "\(onCard.prefix(1))"
+        } else if onCard.count > 1 {
+            let part1 = "\(onCard.prefix(2))"
+            onCard.removeFirst(2)
+            let part2 = onCard
+            self.validThru = "\(part1)/\(part2)"
+        } else {
+            self.validThru = onCard
+        }
+    }
+}
 
 fileprivate extension String {
     

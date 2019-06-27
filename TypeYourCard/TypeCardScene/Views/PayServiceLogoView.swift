@@ -12,7 +12,7 @@ extension PayService {
     
     var view: some View {
         switch self {
-        case .MasterCard: return MasterCardLogoView()
+        case .MasterCard: return MasterCardLogoView(height: 30)
         }
     }
 }
@@ -34,7 +34,7 @@ struct PayServiceLogoView : View {
             if typeCardEnvironment.payService != nil {
                typeCardEnvironment.payService!.view
             } else {
-                EmptyView()
+                EmptyView().frame(height: 30)
             }
 
         }
@@ -43,8 +43,14 @@ struct PayServiceLogoView : View {
 
 #if DEBUG
 struct PayServiceLogoView_Previews : PreviewProvider {
+    static var environment:  TypeCardEnvironment {
+        let env = TypeCardEnvironment()
+        env.number = "4124"
+        return env
+    }
+    
     static var previews: some View {
-        PayServiceLogoView().environmentObject(TypeCardEnvironment())
+        PayServiceLogoView().environmentObject(environment)
     }
 }
 #endif

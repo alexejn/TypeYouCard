@@ -22,36 +22,95 @@ fileprivate extension Animation {
 //    }
 //}
 
-struct MasterCardLogoView : View {
+fileprivate extension Animation {
+    static var circleDraw: Animation {
+        basic(duration: 0.8, curve: .easeInOut)
+    }
     
-    @State private var animate: Bool = false
+    static var fillColor: Animation {
+        basic(duration: 0.5, curve: .linear).delay(1.1)
+    }
+}
+
+struct CircleShape: Shape {
+    var endPath: Double
+    func path(in rect: CGRect) -> Path {
+        
+        var path = Path()
+        let radius = rect.height / 2
+        let center = CGPoint(x: radius, y: rect.midY)
+        path.addArc(center: center,
+                    radius: radius,
+                    startAngle: .degrees(0),
+                    endAngle: .degrees(endPath),
+                    clockwise: false)
+        
+        return path
+    }
+    
+    var animatableData: AnimatablePair<Double, Double> {
+        get { .init(endPath, 0) }
+        set {  endPath = newValue.first }
+    }
+    
+}
+
+struct CircleView: View {
+    var visible: Bool = false
+    var color: Color
+    var animationDelay: Double = 0
+    var opacity: Double = 0.6
     
     var body: some View {
-        VStack {
-//        GeometryReader { geometry in
-//            Path { path in
-//                let frame =  geometry.frame(in: .local)
-//                let center = CGPoint(x: frame.midX, y: frame.midY)
-//
-//                path.addArc(center: center,
-//                            radius: self.animate ? 100 : 50,
-//                            startAngle: .degrees(0),
-//                            endAngle: .degrees(self.animate ? 360: 50 ),
-//                            clockwise: true)
-//
-//                }.stroke(Color.red)
-//            }
+        ZStack {
             Circle()
-                 .trim(from: 0, to: animate ? 0.7 : 0)
-                //.stroke(Color.red, lineWidth: 2)
-                .foregroundColor(.red)
-                .rotationEffect(.degrees(animate ? 180 : 0))
-               // .animation(Animation.basic(), animate)
+                .fill(color)
+                .opacity(visible ? opacity : 0)
+                .animation(.fillColor)
             
+            CircleShape(endPath: self.visible ? 360 : 0)
+                .stroke(color, lineWidth: 1)
+                .animation(Animation.circleDraw.delay(animationDelay))
+                .rotationEffect(.degrees(self.visible ? 360 : 0), anchor: UnitPoint.center)
+        }.aspectRatio(1, contentMode: .fit)
+    }
+}
+
+struct MasterCardLogoView : View {
+    @State private var visible: Bool = false
+    var height: Length = 50
+    private let aspectRatio: Length = 1.64
+    private var offset: Length { return height / (2 * aspectRatio)}
+    
+    var body: some View {
+        ZStack{
+            Circle()
+                .fill(Color(0xEA011A))
+                .opacity(visible ? 1 : 0)
+                .animation(.fillColor)
+                .frame(height: height)
+                .offset(x: -offset, y: 0)
+
+            CircleView(visible: self.visible,
+                       color: Color(0xEA011A) )
+                .zIndex(1)
+                .offset(x: -offset, y: 0)
             
-            Button(action: {  withAnimation { self.animate.toggle()  } }) {
-                Text("Go animate")
+            CircleView(visible: self.visible,
+                       color: Color(0xF79F19),
+                       animationDelay: 0.3,
+                       opacity: 1)
+                .offset(x: offset, y: 0)
+            }.padding(0)
+            .frame(width: height * aspectRatio, height: height)
+            .onAppear() {
+                if self.visible {
+                    self.visible.toggle()
+                } else {
+                     withAnimation {  self.visible.toggle()
+                }
             }
+                
         }
     }
 }
@@ -59,7 +118,7 @@ struct MasterCardLogoView : View {
 #if DEBUG
 struct MasterCardLogoView_Previews : PreviewProvider {
     static var previews: some View {
-        MasterCardLogoView()
+        MasterCardLogoView(height: 100)
     }
 }
 #endif

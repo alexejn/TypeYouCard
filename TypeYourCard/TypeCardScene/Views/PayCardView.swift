@@ -33,10 +33,11 @@ fileprivate struct FrontCardSide: View {
     var body: some View {
         VStack {
             HStack {
+                Text("").frame(height: 30)
                 Spacer()
                 PayServiceLogoView()
             }
-            Spacer(minLength: 30)
+            Spacer()
             HStack {
                 PlaceholderText(placeholder: "XXXX", text: environment.onCardNumberPart1)
                 Spacer()
@@ -108,6 +109,7 @@ fileprivate struct BackCardSide: View {
             HStack {
                 Spacer()
                 PayServiceLogoView()
+                    .animation(nil)
             }
         }.padding(20)
         .rotation3DEffect(.degrees(-180), axis: (x: 0, y: 1, z: 0))
@@ -129,17 +131,23 @@ struct PayCardView : View {
             FrontCardSide().opacity(isBackSide ? 0 : 1)
         }
         .background(Color(red: 59/255, green: 58/255, blue: 61/255), cornerRadius: 16)
-        .aspectRatio(1.7, contentMode: .fit) //1.46 original
+        .aspectRatio(1.55, contentMode: .fit) //1.46 original
         .shadow(radius: 10)
         .rotation3DEffect(.degrees(isBackSide ? -180 : 0), axis: (x: 0, y: 1, z: 0))
-        .animation(environment.filled ? Animation.FlipOtherSide.flip : nil)
+        .animation(Animation.FlipOtherSide.flip)
     }
 }
 
 #if DEBUG
 struct CardView_Previews : PreviewProvider {
+    static var environment:  TypeCardEnvironment {
+        let env = TypeCardEnvironment()
+        env.number = "4124"
+        return env
+    }
+    
     static var previews: some View {
-        PayCardView().padding(20).environmentObject(TypeCardEnvironment())
+        PayCardView().padding(20).environmentObject(environment)
         
     }
 }

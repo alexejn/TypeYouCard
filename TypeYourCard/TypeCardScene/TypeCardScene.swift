@@ -32,7 +32,6 @@ extension PayCardField {
 }
 
 struct TypeCardScene : View {
-    @Environment(\.isPresented) private var isPresented
     @ObjectBinding var environment = TypeCardEnvironment()
   
     private var textFieldBinding: Binding<String> {
@@ -75,7 +74,7 @@ struct TypeCardScene : View {
         guard environment.canGoNext else { return }
         
         if environment.currentInputField.isLastInput {
-            isPresented?.value = false
+            withAnimation { environment.clear() }
         } else {
             withAnimation { environment.goToNextField() }
         }
@@ -85,8 +84,15 @@ struct TypeCardScene : View {
 
 #if DEBUG
 struct TypeYourCardScene_Previews : PreviewProvider {
+    static var environment:  TypeCardEnvironment {
+        let env = TypeCardEnvironment()
+        env.number = "4124"
+        return env
+    }
+    
+    
     static var previews: some View {
-        TypeCardScene(environment: TypeCardEnvironment())
+        TypeCardScene(environment: environment)
             .padding(20)
     }
 }
