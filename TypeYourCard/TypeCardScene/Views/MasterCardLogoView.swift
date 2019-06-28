@@ -24,11 +24,11 @@ fileprivate extension Animation {
 
 fileprivate extension Animation {
     static var circleDraw: Animation {
-        basic(duration: 0.8, curve: .easeInOut)
+        basic(duration: 1, curve: .easeInOut).delay(0.2)
     }
     
     static var fillColor: Animation {
-        basic(duration: 0.5, curve: .linear).delay(1.1)
+        basic(duration: 0.5, curve: .linear).delay(1.5)
     }
 }
 
@@ -71,14 +71,14 @@ struct CircleView: View {
             CircleShape(endPath: self.visible ? 360 : 0)
                 .stroke(color, lineWidth: 1)
                 .animation(Animation.circleDraw.delay(animationDelay))
-                .rotationEffect(.degrees(self.visible ? 360 : 0), anchor: UnitPoint.center)
+                .rotationEffect(.degrees(self.visible ? 460 : 0), anchor: UnitPoint.center)
         }.aspectRatio(1, contentMode: .fit)
     }
 }
 
 struct MasterCardLogoView : View {
     @State private var visible: Bool = false
-    var height: Length = 50
+    var height: Length = 30
     private let aspectRatio: Length = 1.64
     private var offset: Length { return height / (2 * aspectRatio)}
     
@@ -109,8 +109,7 @@ struct MasterCardLogoView : View {
                 } else {
                      withAnimation {  self.visible.toggle()
                 }
-            }
-                
+            } 
         }
     }
 }

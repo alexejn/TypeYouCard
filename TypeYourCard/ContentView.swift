@@ -12,7 +12,7 @@ struct ContentView : View {
     var body: some View {
         VStack {
             Text("alexejn/TypeYouCard")
-            TypeCardScene().padding(.top, 30)
+            TypeCardScene().padding(.top, -2)
         } 
     }
 }

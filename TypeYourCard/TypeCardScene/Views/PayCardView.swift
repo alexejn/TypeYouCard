@@ -33,11 +33,11 @@ fileprivate struct FrontCardSide: View {
     var body: some View {
         VStack {
             HStack {
-                Text("").frame(height: 30)
+                Text(" ").frame(height: 30)
                 Spacer()
                 PayServiceLogoView()
             }
-            Spacer()
+            Spacer(minLength: 6)
             HStack {
                 PlaceholderText(placeholder: "XXXX", text: environment.onCardNumberPart1)
                 Spacer()
@@ -51,7 +51,7 @@ fileprivate struct FrontCardSide: View {
                 .font(.cardNumberField)
                 .foregroundColor(.white)
                 .tapAction { self.goTo(field: .number) } 
-            Spacer()
+            Spacer(minLength: 6)
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
                     Text("CARDHOLDER NAME")
@@ -74,7 +74,7 @@ fileprivate struct FrontCardSide: View {
                 }
                 }
                 .foregroundColor(Color.white)
-        }.padding(20)
+        }.padding(18)
         .animation(Animation.FlipOtherSide.hideSideWhileFlip)
     }
     
@@ -90,8 +90,8 @@ fileprivate struct BackCardSide: View {
     var body: some View {
         VStack(spacing: 15) {
             Color.black.frame(height: 60)
-                .padding([.leading, .trailing], -20)
-                .padding(.top, 15)
+                .padding([.leading, .trailing], -18)
+                .padding(.top, 11)
             HStack {
                 Color.gray.frame(width: 240, height: 40, alignment: .center)
                 ZStack {
@@ -111,7 +111,7 @@ fileprivate struct BackCardSide: View {
                 PayServiceLogoView()
                     .animation(nil)
             }
-        }.padding(20)
+        }.padding(18)
         .rotation3DEffect(.degrees(-180), axis: (x: 0, y: 1, z: 0))
         .animation(Animation.FlipOtherSide.hideSideWhileFlip)
         .tapAction(environment.goToPreviousField)
@@ -130,8 +130,8 @@ struct PayCardView : View {
             BackCardSide().opacity(isBackSide ? 1 : 0)
             FrontCardSide().opacity(isBackSide ? 0 : 1)
         }
-        .background(Color(red: 59/255, green: 58/255, blue: 61/255), cornerRadius: 16)
-        .aspectRatio(1.55, contentMode: .fit) //1.46 original
+        .background(Color(0x191622), cornerRadius: 16)
+        .aspectRatio(1.46, contentMode: .fit) //1.46 original
         .shadow(radius: 10)
         .rotation3DEffect(.degrees(isBackSide ? -180 : 0), axis: (x: 0, y: 1, z: 0))
         .animation(Animation.FlipOtherSide.flip)

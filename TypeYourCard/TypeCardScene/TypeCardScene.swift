@@ -44,7 +44,7 @@ struct TypeCardScene : View {
     }
     
     var body: some View {
-        VStack(alignment: .center, spacing: 14) {
+        VStack(alignment: .center, spacing: 12) {
             PayCardView().layoutPriority(1)
             HStack {
                 Text("Type in you card details:")
@@ -52,7 +52,7 @@ struct TypeCardScene : View {
                     .fontWeight(.bold)
                 Spacer()
             }
-            VStack(alignment: .trailing, spacing: 10) {
+            VStack(alignment: .trailing, spacing: 8) {
                 PayCardFieldInputView(field: environment.currentInputField,
                                       binding: textFieldBinding,
                                       isFirstResponder: true)
