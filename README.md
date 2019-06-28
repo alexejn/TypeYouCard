@@ -1,3 +1,3 @@
 # Awesome SwiftUI in action
 
-![image](https://gfycat.com/animatedelementaryjaeger)
+![image](https://im3.ezgif.com/tmp/ezgif-3-51ee0683f43f.gif)
