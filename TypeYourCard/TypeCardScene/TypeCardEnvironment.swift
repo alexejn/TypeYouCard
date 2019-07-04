@@ -111,7 +111,6 @@ fileprivate extension TypeCardEnvironment {
         var tempNumb = number
         
         if oldValue == "\(tempNumb) " {
-            tempNumb.removeLast(2)
             number = tempNumb
         } else {
             var resultStr = ""
