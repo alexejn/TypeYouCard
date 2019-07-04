@@ -11,11 +11,11 @@ import SwiftUI
 extension PayCardField {
     
     var isFirstInput: Bool {
-        self.rawValue == PayCardField.allCases.map { $0.rawValue }.min()!
+        self == PayCardField.allCases.first
     }
     
     var isLastInput: Bool {
-        self.rawValue == PayCardField.allCases.map { $0.rawValue }.max()!
+        self == PayCardField.allCases.last
     }
     
     var buttonTitle: String {
