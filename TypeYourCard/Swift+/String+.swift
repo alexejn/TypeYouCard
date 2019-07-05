@@ -29,3 +29,19 @@ extension String {
         return String(self[idx1..<idx2])
     }
 }
+
+extension Collection where Iterator.Element: Equatable {
+    func after(_ element: Element) -> Element? {
+        if let elementIndex = self.firstIndex(of: element), elementIndex < self.endIndex {
+            return self[index(after: elementIndex)]
+        }
+        return nil
+    }
+    
+    func before(_ element: Element) -> Element? {
+        if let elementIndex = self.firstIndex(of: element), elementIndex > self.startIndex {
+            return self[index(elementIndex, offsetBy: -1)]
+        }
+        return nil
+    }
+}

@@ -23,11 +23,11 @@ extension PayCardField {
     }
     
     var nextForInput: PayCardField? {
-        PayCardField(rawValue: rawValue + 1)
+        PayCardField.allCases.after(self)
     }
     
     var prevForInput: PayCardField? {
-        PayCardField(rawValue: rawValue - 1)
+        PayCardField.allCases.before(self)
     }
 }
 

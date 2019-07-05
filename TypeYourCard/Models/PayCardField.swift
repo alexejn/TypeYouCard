@@ -7,8 +7,7 @@
 //
 import SwiftUI
 
-enum PayCardField: Int, CaseIterable {
-    // Int - is input order
+enum PayCardField: CaseIterable {
     case number
     case holder
     case validThru
