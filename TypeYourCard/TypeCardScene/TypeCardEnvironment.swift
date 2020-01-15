@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-final class TypeCardEnvironment: BindableObject {
+final class TypeCardEnvironment: ObservableObject {
     let didChange = PassthroughSubject<TypeCardEnvironment, Never>()
     private func notify() {   didChange.send(self)  }
     

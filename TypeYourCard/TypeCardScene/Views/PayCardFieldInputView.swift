@@ -32,11 +32,7 @@ struct PayCardFieldInputView : View {
     var isFirstResponder: Bool
     
     var body: some View {
-        IDView(content, id: field.title)
-    }
-    
-    private var content: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: HorizontalAlignment.leading, spacing: 6) {
             Text(field.title)
                 .font(.system(size: 15))
                 .opacity(0.5)
@@ -46,8 +42,10 @@ struct PayCardFieldInputView : View {
                                    keyboardType: field.keyboardType)
                 .padding(10)
                 .frame(height: 50)
-                .border(Color.black, width: 0.3, cornerRadius: 10)
-        }
+                .border(Color.black, width: 0.3)
+                .cornerRadius(10)
+                
+        }.id(field.title)
     }
 }
 

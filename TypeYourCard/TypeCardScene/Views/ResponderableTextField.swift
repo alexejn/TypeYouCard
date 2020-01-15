@@ -16,7 +16,7 @@ struct ResponderableTextField: UIViewRepresentable {
         var didBecomeFirstResponder = false
         
         init(text: Binding<String>) {
-            $text = text
+            self._text = text
         }
         
         func textFieldDidChangeSelection(_ textField: UITextField) {

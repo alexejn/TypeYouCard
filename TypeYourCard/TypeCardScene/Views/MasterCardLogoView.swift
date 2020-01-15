@@ -10,7 +10,7 @@ import SwiftUI
 
 fileprivate extension Animation {
     static var leftArcAppearance: Animation {
-        .basic(duration: 5)
+        Animation.linear(duration: 5) 
     }
 }
 
@@ -24,11 +24,11 @@ fileprivate extension Animation {
 
 fileprivate extension Animation {
     static var circleDraw: Animation {
-        basic(duration: 1, curve: .easeInOut).delay(0.2)
+        Animation.easeInOut(duration: 1).delay(0.2)
     }
     
     static var fillColor: Animation {
-        basic(duration: 0.5, curve: .linear).delay(1.5)
+        Animation.linear(duration: 0.5).delay(1.5)
     }
 }
 
@@ -78,9 +78,9 @@ struct CircleView: View {
 
 struct MasterCardLogoView : View {
     @State private var visible: Bool = false
-    var height: Length = 30
-    private let aspectRatio: Length = 1.64
-    private var offset: Length { return height / (2 * aspectRatio)}
+    var height: CGFloat = 30
+    private let aspectRatio: CGFloat = 1.64
+    private var offset: CGFloat { return height / (2 * aspectRatio)}
     
     var body: some View {
         ZStack{

@@ -32,7 +32,7 @@ extension PayCardField {
 }
 
 struct TypeCardScene : View {
-    @ObjectBinding var environment = TypeCardEnvironment()
+    @ObservedObject var environment = TypeCardEnvironment()
   
     private var textFieldBinding: Binding<String> {
         switch environment.currentInputField {

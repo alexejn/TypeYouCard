@@ -13,15 +13,15 @@ extension Animation {
         private static let duration: Double = 0.3
         
         static var hideSideWhileFlip: Animation {
-            Animation.basic(duration: 0.001, curve: .linear).delay(duration/2)
+            Animation.linear(duration: 0.001).delay(duration/2)
         }
         
         static var flip: Animation {
-            Animation.basic(duration: duration, curve: .linear)
+            Animation.linear(duration: duration)
         }
     }
     
     static var withoutAnimation: Animation {
-        Animation.basic(duration: 0, curve: .linear)
+        Animation.linear(duration: 0) 
     }
 }

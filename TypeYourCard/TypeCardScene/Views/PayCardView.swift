@@ -10,15 +10,15 @@ import SwiftUI
 
 struct GoldBorder: ViewModifier {
     let visible: Bool
-    let cornerRadius: Length = 10
+    let cornerRadius: CGFloat = 10
     var padding: EdgeInsets = .init(top: 2, leading: 6, bottom: 5, trailing: 6)
     
     func body(content: Content) -> some View {
         content
             .padding(padding)
             .border(Color(0xC0AE5B),
-                    width: visible ? 2 : 0,
-                    cornerRadius: cornerRadius)
+                    width: visible ? 2 : 0)
+            .cornerRadius(cornerRadius)
             .padding(EdgeInsets(top: -padding.top,
                                 leading: -padding.leading,
                                 bottom: -padding.bottom,
@@ -50,7 +50,7 @@ fileprivate struct FrontCardSide: View {
                 .modifier(GoldBorder(visible: environment.currentInputField == PayCardField.number))
                 .font(.cardNumberField)
                 .foregroundColor(.white)
-                .tapAction { self.goTo(field: .number) } 
+                .onTapGesture {  self.goTo(field: .number)  }
             Spacer(minLength: 6)
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
@@ -61,7 +61,7 @@ fileprivate struct FrontCardSide: View {
                                     showPlaceholderWhileTyping: false)
                         .font(.cardRegularField)
                         .modifier(GoldBorder(visible: environment.currentInputField == PayCardField.holder))
-                         .tapAction { self.goTo(field: .holder) }
+                         .onTapGesture { self.goTo(field: .holder) }
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 3) {
@@ -70,7 +70,7 @@ fileprivate struct FrontCardSide: View {
                     PlaceholderText(placeholder: "MM/YY", text: environment.onCardValidThru)
                         .font(.cardRegularField)
                         .modifier(GoldBorder(visible: environment.currentInputField == PayCardField.validThru))
-                        .tapAction { self.goTo(field: .validThru) }
+                        .onTapGesture { self.goTo(field: .validThru) }
                 }
                 }
                 .foregroundColor(Color.white)
@@ -114,7 +114,7 @@ fileprivate struct BackCardSide: View {
         }.padding(18)
         .rotation3DEffect(.degrees(-180), axis: (x: 0, y: 1, z: 0))
         .animation(Animation.FlipOtherSide.hideSideWhileFlip)
-        .tapAction(environment.goToPreviousField)
+        .onTapGesture(perform: environment.goToPreviousField)
         
     }
 }
@@ -130,7 +130,8 @@ struct PayCardView : View {
             BackCardSide().opacity(isBackSide ? 1 : 0)
             FrontCardSide().opacity(isBackSide ? 0 : 1)
         }
-        .background(Color(0x191622), cornerRadius: 16)
+        .background(Color(0x191622))
+        .cornerRadius(16)
         .aspectRatio(1.46, contentMode: .fit) //1.46 original
         .shadow(radius: 10)
         .rotation3DEffect(.degrees(isBackSide ? -180 : 0), axis: (x: 0, y: 1, z: 0))
